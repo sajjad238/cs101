@@ -1,0 +1,54 @@
+This session is about type declerations,
+* Every variable, function or object must have type declerations
+* Type decleration tells the compiler, how much memory is need to allocate for an object. 
+  Also, how to interprete the bit stored in those memory locations, like signed and unsigned type decleration
+
+
+Arithmetic Expressions:
+
+destination = (arithmetic expression)
+C = A + B
+
+* type of destination and type of expression must be same, 
+
+* destination type should be as expressive or more compare to the expression type, for exampe
+
+int c, a, b; is ok
+
+float c;
+int a, b; is alos ok
+
+BUT
+
+int c;
+float a, b; is not ok because it will lose information.
+
+Arithmetic Operators:
++ - / % * 
+
+* above operators have precedence, + - has equal precedence, while / * % has equal
+
+* precedence is the level of priority in case when both operator appear at the same level of operation for example
+
+a + b * c = a + (b * c) because * has higher precedence
+
+* in case when operators of equal precedence appears, left association work, calculation will start from left to right. 
+
+Logical Operators: return bool type
+
+* There are some logical operators who's output is in for of TRUE or FALSE, for example a < b is a logical operation, if a is less than b, output will be 1 otherwise 0, no other output
+can be produce from this operation or this "<" operator
+
+* Here some other logical operators and operations
+<   less than
+>   greater than
+<=  less than equal to
+>=  greater than equal to
+==  equal to
+!=  not equal to
+
+* There are advance logical operator to represent AND OR NOT like operation
+&&  AND
+||  OR
+!   NOT
+
