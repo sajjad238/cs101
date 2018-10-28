@@ -1,0 +1,29 @@
+* variables can be used to represent multiple files
+    var=a.o b.o c.o
+    multi: $(var) multi.c               // pre-requisites for target (multi)
+        cc multi.c $(var) -o multi      // compile multi.c link a.o b.o c.o and generate multi (target)
+
+* CC is a variable used to represent c compiler in many makefiles
+    CC=gcc
+
+* automatic variables, used to represent 'target' or 'pre-requisits'
+    * pre-requisits cannot be used in place of pre-requisit or target but can represent them on other places
+
+    multi: $(var) multi.c
+        cc $^ -o $@                     // $^ to represent pre-requisit separater by spaces, in our case "$(var) multi.c"
+                                        // $@ to represent the target for example "multi" in our case
+
+* PATTERN RULE
+* % sign can be used to find the file and dependencies based on pattern  
+    default: hello
+    %: %.c                              // it will search for the hello, if it cannot find one, it will start resolving the patterns
+        cc $^ -o $@                     // it will find the hello.c, and compile the $^ and generate the $@
+                                        // that way it handle most the work itself, using implicit pattern rule
+        
+   * keep in mind that we always need an actual target to use patterns  
+
+* OTHER USE OF MAKEFILE 
+    default: x.txt.end                  // we need last 10 line of a file as filename 'x.txt.end'
+
+    %.txt.end: %.txt                    // makefile search for 'x.txt.end' if it couldnt find, it will search the pre-requisit 'x.txt'
+        cat $^ | tail -n10  > $@        // cat the pre-requisit pipe it to "tail" command and generate the target $@
