@@ -8,11 +8,13 @@
 
 # but makefile is intelligent enough to just build the target if the file is in same dir, 
 # makefile use implicit rule to make that target.
-default: factorial recursive_functions
+CC = g++ -g
+objects = factorial virahanka practice00 practice01
 
-factorial:
+default: $(objects)
 
-recursive_functions:
+%: %.cpp
+	$(CC) $^ -o $@
 
 clean:
-	rm factorial recursive_functions
+	rm $(objects)

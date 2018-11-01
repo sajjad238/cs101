@@ -43,7 +43,7 @@ void swap_by_value (int v1, int v2)
 /*
 * swap function implement as by-reference parameter passing
 * this function can be of two formates, 
-	(int &v1, int &v2) -> this will copy the physical memory address of variable itself
+	(int &v1, int &v2) -> this will copy the physical memory address of variable '&v1' is not a pointer, it is a variable on the same memory address as passed
 	(int *v1, int *v2) -> this will expect that memory address is passed as parameter
 * Process values will be stored back to memory address passed by the caller, that way it got indirect reference
 */
